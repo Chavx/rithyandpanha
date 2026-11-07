@@ -740,9 +740,142 @@
         .bio-side h3 { font-family: 'Moul', cursive; font-size: 0.8rem; font-weight: normal; margin-bottom: 0.3rem; color: #fef08a !important; }
         .bio-side p { font-size: 0.75rem; color: #e0f2fe !important; }
 
-        /* Page 5 */
+        /* Page 5 Dynamic Section Box & Gift QR Styles */
         .section-box { background: rgba(15, 30, 54, 0.65); border: 1px solid var(--border-color); border-radius: 14px; padding: 0.8rem; margin-bottom: 0.8rem; text-align: center; }
         .section-title { font-family: 'Moul', cursive; font-size: 0.82rem; margin-bottom: 0.5rem; font-weight: normal; }
+
+        .blessing-card {
+            background: linear-gradient(145deg, rgba(20, 48, 77, 0.85), rgba(7, 23, 41, 0.85));
+            border: 1px solid rgba(212, 175, 55, 0.55);
+            border-radius: 18px;
+            padding: 1rem 0.8rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), inset 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Large Single-Column QR Layout for High Legibility & ABA Card Display */
+        .qr-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 1rem;
+            align-items: center;
+        }
+
+        .qr-item {
+            background: rgba(11, 29, 51, 0.9);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            border-radius: 16px;
+            padding: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 320px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .qr-item:hover {
+            transform: translateY(-3px);
+            border-color: #d4af37;
+            box-shadow: 0 12px 25px rgba(212, 175, 55, 0.25);
+        }
+
+        .qr-img-wrap {
+            width: 100%;
+            max-width: 280px;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 6px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .qr-img-wrap img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .currency-badge {
+            margin-top: 0.6rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #fef08a;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .account-owner {
+            font-size: 0.75rem;
+            color: #e0f2fe;
+            margin-top: 0.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Modal Overlay for Enlarged QR Code */
+        .qr-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(3, 7, 18, 0.88);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .qr-modal.active {
+            display: flex;
+        }
+
+        .qr-modal-content {
+            background: linear-gradient(180deg, #132742, #081526);
+            border: 2px solid #d4af37;
+            border-radius: 20px;
+            padding: 1.2rem;
+            max-width: 360px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.3);
+            position: relative;
+        }
+
+        .qr-modal-img {
+            width: 100%;
+            border-radius: 12px;
+            background: #ffffff;
+            padding: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            margin: 0.8rem 0;
+        }
+
+        .close-modal-btn {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid #d4af37;
+            color: #fef08a;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
         /* Page 1 Logo Cover */
         .page1-logo {
@@ -1215,7 +1348,7 @@
                     </div>
                     <div class="parents-side">
                         <p class="parent-name">លោក ស៊ុយ សុខុន</p>
-                        <p class="parent-name">លោកស្រី សាន សុផាវត្តី</p>
+                        <p class="parent-name">លោកស្រី សន សុផាវត្តី</p>
                     </div>
                 </div>
                
@@ -1307,12 +1440,12 @@
             </div>
             <div class="couple-bio-block">
                 <div class="bio-side">
-                    <img src="backgrund/IMG_1086.jpg" alt="Groom">
+                    <img src="/backgrund/PLOY2180 (1).jpg" alt="Groom">
                     <h3>ថោង រិទ្ធី</h3>
                     <p>កូនកំលោះ</p>
                 </div>
                 <div class="bio-side">
-                    <img src="backgrund/IMG_1020.jpg" alt="Bride">
+                    <img src="/backgrund/PLOY2180 (2).jpg" alt="Bride">
                     <h3>ស៊ុយ សុវណ្ណបញ្ញា</h3>
                     <p>កូនក្រមុំ</p>
                 </div>
@@ -1349,7 +1482,7 @@
             </div>
         </div>
 
-        <!-- PAGE 5 (Location) -->
+        <!-- PAGE 5 (Location & Gift QR) -->
         <div class="page" id="page5">
             <div class="final-page-heading">
                 <div class="final-page-kicker">LOCATION • MAP</div>
@@ -1404,6 +1537,37 @@
                     </div>
                 </div>
             </div>
+
+            <!-- DIGITAL BLESSING & LARGE ABA QR CODES -->
+            <div class="blessing-card">
+                <div class="section-title">🎁 អំណោយជ័យ និងចំណងដៃឌីជីថល</div>
+                <p style="font-size: 0.72rem; color: #e0f2fe; margin-bottom: 0.8rem; line-height: 1.6;">
+                    ប្រសិនបើលោកអ្នកមិនបានចូលរួមផ្ទាល់ ឬប្រាថ្នាផ្ញើសព្ទសាធុការពរតាមរយៈចំណងដៃឌីជីថល លោកអ្នកអាចស្កែន QR Code ABA ខាងក្រោម៖
+                </p>
+
+                <div class="qr-grid">
+                    <!-- USD QR CARD -->
+                    <div class="qr-item">
+                        <div class="qr-img-wrap" onclick="openQrModal('aba-1.jpg', 'SOVANPANHA SUY (USD)')">
+                            <img src="/backgrund/aba-1.png" alt="ABA KHQR USD">
+                        </div>
+                        <div class="currency-badge">💵 គណនីដុល្លារ (USD)</div>
+                        <div class="account-owner">SOVANPANHA SUY</div>
+                    </div>
+
+                    <!-- KHR QR CARD -->
+                    <div class="qr-item">
+                        <div class="qr-img-wrap" onclick="openQrModal('aba-2.jpg', 'SOVANPANHA SUY (KHR)')">
+                            <img src="/backgrund/aba-2.png" alt="ABA KHQR KHR">
+                        </div>
+                        <div class="currency-badge">៛ គណនីរៀល (KHR)</div>
+                        <div class="account-owner">SOVANPANHA SUY</div>
+                    </div>
+                </div>
+                <div style="font-size: 0.65rem; color: #fef08a; opacity: 0.8; margin-top: 0.8rem;">
+                    * ចុចលើរូប QR Code ដើម្បីពង្រីកធំពេញអេក្រង់
+                </div>
+            </div>
             
             <div class="section-box" style="text-align: left; padding: 10px 15px;">
                 <div class="section-title" style="text-align: center; margin-bottom: 8px;">🏢 ព័ត៌មានទំនាក់ទំនងក្រុមហ៊ុន</div>
@@ -1425,7 +1589,17 @@
             </div>
         </div>
 
+    </div>
 
+    <!-- QR Code Enlarged Preview Modal -->
+    <div class="qr-modal" id="qrModal" onclick="closeQrModal()">
+        <div class="qr-modal-content" onclick="event.stopPropagation()">
+            <button class="close-modal-btn" onclick="closeQrModal()">✕</button>
+            <div class="section-title" id="modalTitle" style="margin-top: 0.4rem; font-size: 0.95rem;"></div>
+            <img class="qr-modal-img" id="modalQrImg" src="" alt="Enlarged QR Code">
+            <p style="font-size: 0.75rem; color: #e0f2fe; margin-top: 0.2rem;">ABA KHQR - SOVANPANHA SUY</p>
+            <button class="btn" style="margin-top: 0.8rem;" onclick="closeQrModal()">បិទ</button>
+        </div>
     </div>
 
     <!-- JavaScript code functionality -->
@@ -1439,6 +1613,21 @@
                 guestEl.textContent = 'ជូនចំពោះ ' + guestParam.trim();
             }
         })();
+
+        // QR Code Modal Functions
+        function openQrModal(imgSrc, titleText) {
+            const modal = document.getElementById('qrModal');
+            const modalImg = document.getElementById('modalQrImg');
+            const modalTitle = document.getElementById('modalTitle');
+            
+            modalImg.src = imgSrc;
+            modalTitle.textContent = titleText;
+            modal.classList.add('active');
+        }
+
+        function closeQrModal() {
+            document.getElementById('qrModal').classList.remove('active');
+        }
 
         // Falling Petals Generator
         function createPetals() {
